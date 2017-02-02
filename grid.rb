@@ -9,6 +9,7 @@ class Grid
 
 
   def initialize
+    @ships = []
     @shots_receeived = 0
     @grid = []
     HEIGHT.times do |y|
@@ -107,13 +108,16 @@ class Grid
     return ship
   end	
 
+  def add_ship_to_game( ship )
+    @ships << ship
+  end
+
   def fill
 
-    @ships = []
-    @ships << Carrier.new
-    @ships << Submarine.new
-    @ships << Cruiser.new
-    @ships << Destroyer.new
+    add_ship_to_game Carrier.new
+    add_ship_to_game Submarine.new
+    add_ship_to_game Cruiser.new
+    add_ship_to_game Destroyer.new
 
     @ships.each do | ship |
 
